@@ -15,12 +15,12 @@ Accurate identification of DNA-binding proteins (DBPs) and RNA-binding proteins 
 DNA-binding proteins; RNA-binding proteins; protein language model; ESM-2; deep learning; attention mechanism
 
 ## Problem Statement
-This project classifies protein sequences as DNA-binding proteins (DBP) or RNA-binding proteins (RBP) using a transformer-based sequence model with lightweight fine-tuning and interpretable attention analysis.
+This project classifies protein sequences as DNA-binding proteins (DBPs) or RNA-binding proteins (RBPs) using a transformer-based sequence model with lightweight fine-tuning and interpretable attention analysis.
 
 ## Method Overview
 - Backbone model: `facebook/esm2_t33_650M_UR50D`
 - Fine-tuning: LoRA on attention projections (`query`, `key`, `value`)
-- Tasks: binary classification for D (DNA) and R (RNA)
+- Tasks: binary classification for DBP and RBP
 - Interpretability: value-aware attention (VAT) token scoring
 
 ## Dataset
@@ -42,7 +42,7 @@ Raw files are under `data/raw_data/`. Cross-validation outputs are under `data/D
 Value-aware attention (VAT) scores localize to known nucleic acid-binding domains, including zinc finger and homeodomain regions for DBPs and RNA recognition motifs (RRM) for RBPs. Domain-level enrichment and residue-level profiles show consistent attention concentration in annotated binding regions.
 
 ## Repository Structure
-- `src/scripts/DRBP_train.py`: train LoRA models for D/R tasks (CV-based)
+- `src/scripts/DRBP_train.py`: train LoRA models for BP/NBP tasks for DBP and RBP(CV-based)
 - `src/scripts/DRBP_predicton.py`: evaluate models and write prediction CSVs
 - `src/scripts/DRBP_att_score.py`: compute VAT token scores for validation sequences
 - `src/notebooks/`: data EDA and result analysis notebooks
@@ -84,7 +84,5 @@ All scripts for preprocessing, training, and evaluation are provided in this rep
 
 
 ## Author Contributions
-CP and SGL, HK designed the research and wrote the paper. CP, EMK and KK coordinated the research. SGL, HK and JO performed the research and analyzed the data. All authors read and approved the final manuscript.
+CP conceived, designed, and led the study and wrote the manuscript. HK and SGL contributed equally to this work, including the development of the computational framework, data analysis, and preparation of the initial draft. JO assisted with data curation. KKK and EMK provided expert consultation. All authors reviewed and approved the final manuscript.
 
-## Competing Interests
-The authors declare no competing interests.
